@@ -5,14 +5,16 @@ import hu.horinka.andras.queuesystem.zone.Area;
 import java.time.LocalDate;
 
 public class Patient extends User {
-    private final int validDays = 365;
+    private static final int VALID_DAYS = 365;
     private boolean paid;
     private LocalDate paymentDate;
-    private int doctorID;
+    private Doctor doctor;
+    //TODO: convert it to Doctor
 
 
-    public Patient(String name, Area area, UserType type, int doctorID) {
+    public Patient(String name, Area area, UserType type, Doctor doctor) {
         super(name, area, type);
+        this.doctor = doctor;
     }
 
     public void payment() {
@@ -47,11 +49,11 @@ public class Patient extends User {
         return paid;
     }
 
-    public int getDoctorID() {
-        return doctorID;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorID(int doctorID) {
-        this.doctorID = doctorID;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }

@@ -46,7 +46,7 @@ public class QueueSystem {
         for (User user : users) {
             if (user.getType() == UserType.PATIENT) {
                 Patient p = (Patient) user;
-                if (p.getDoctorID() == doctor.getUserID()) {
+                if (p.getDoctor() == doctor) {
                     patientsForDoctor.add(p);
                 }
 
